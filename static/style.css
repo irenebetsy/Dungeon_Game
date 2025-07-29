@@ -1,0 +1,49 @@
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #111;
+  color: #eee;
+  text-align: center;
+  padding: 2em;
+}
+
+.container {
+  background-color: #222;
+  padding: 2em;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.map {
+  background-color: #000;
+  color: #0f0;
+  padding: 1em;
+  border: 2px solid #555;
+  margin: 1em 0;
+  white-space: pre;
+  font-size: 1.2em;
+}
+
+.legend, .message {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+input {
+  padding: 0.5em;
+  width: 60%;
+  border-radius: 5px;
+  border: none;
+}
+
+button {
+  padding: 0.5em 1em;
+  margin-left: 1em;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

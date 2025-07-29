@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🕹️ Dungeon Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🕹️ Dungeon Level {{ engine.level }}</h1>
+    {% if engine.map_artifact_active %}
+        <p class="status">🗺️ MAP Artifact ability active</p>
+    {% endif %}
+
+    <div class="status">❤️ Lives: {{ engine.lives }}; 🪙 Coins: {{ engine.coins }}</div>
+
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+
+    <pre class="map">{{ map_text | safe  }}</pre>
+
+    <div class="legend">
+        📌 Legend: ❤️=Life 🪙=Coin *=Trap E=Enemy G=Goal C=Coin +=Footstep P=You
+    </div>
+
+    <form method="post" class="controls">
+        <button name="action" value="U">⬆️</button><br>
+        <button name="action" value="L">⬅️</button>
+        <button name="action" value="D">⬇️</button>
+        <button name="action" value="R">➡️</button><br><br>
+        <button name="action" value="REVEAL">Reveal</button>
+        <button name="action" value="EXIT">Exit</button>
+    </form>
+
+    <script>
+    document.addEventListener('keydown', function(event) {
+        let action = null;
+        if (event.key === "ArrowUp") {
+            action = "U";
+        } else if (event.key === "ArrowDown") {
+            action = "D";
+        } else if (event.key === "ArrowLeft") {
+            action = "L";
+        } else if (event.key === "ArrowRight") {
+            action = "R";
+        }
+
+        if (action) {
+            event.preventDefault(); // Prevents scrolling
+            const form = document.createElement('form');
+            form.method = 'POST';
+
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'action';
+            input.value = action;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    });
+</script>
+
+</body>
+</html>
