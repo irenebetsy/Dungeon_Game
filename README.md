@@ -1,5 +1,7 @@
 # 🧩 Dungeon Game (Terminal, Web & Kivy UI)
 
+📜 License: [Apache 2.0](./LICENSE)
+
 🔗 [▶️ Play the Dungeon Game Online]
 
 
